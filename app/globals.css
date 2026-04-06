@@ -1,26 +1,127 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-background: #f8fafc;
+  --color-foreground: #0f172a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: #f8fafc;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* ===== SIDEBAR ===== */
+  .sidebar {
+    width: 256px;
+    height: 100vh;
+    background-color: #0f172a;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 70;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border-right: 1px solid #1e293b;
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+  }
+
+  /* ===== MAIN CONTENT ===== */
+  .main-content {
+    margin-left: 256px !important;
+    padding: 32px;
+    min-height: 100vh;
+    background-color: #f8fafc;
+    width: calc(100% - 256px);
+  }
+
+  /* ===== HAMBURGER ===== */
+  .hamburger-btn {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 100;
+    background-color: #0f172a;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .hamburger-btn span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+  }
+
+  /* ===== OVERLAY ===== */
+  .mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 60;
+  }
+
+  /* ===== SIDEBAR CLOSE BTN ===== */
+  .sidebar-close-btn {
+    display: none;
+    background: #1e293b;
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
+    cursor: pointer;
+    color: white;
+  }
+}
+
+@layer utilities {
+  /* ===== MOBILE ===== */
+  @media (max-width: 768px) {
+    .sidebar {
+      transform: translateX(-100%);
+    }
+
+    .sidebar-open {
+      transform: translateX(0) !important;
+    }
+
+    .sidebar-close-btn {
+      display: block !important;
+    }
+
+    .hamburger-btn {
+      display: flex !important;
+    }
+
+    .main-content {
+      margin-left: 0 !important;
+      width: 100% !important;
+      padding: 16px !important;
+      padding-top: 64px !important;
+    }
+  }
+
+  /* ===== TABLET ===== */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .main-content {
+      margin-left: 256px !important;
+      width: calc(100% - 256px) !important;
+      padding: 20px !important;
+    }
+  }
 }
