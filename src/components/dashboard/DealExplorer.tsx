@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { Search, TrendingUp, ChevronRight, ChevronLeft, Heart, Star } from 'lucide-react';
 import { useDebounce } from '../../hooks/useDebounce';
 
-// ✅ NAVEEN UI COMPONENTS IMPORTS
+//  UI COMPONENTS IMPORTS
 import { Badge } from '../ui/Badge';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
@@ -204,7 +204,7 @@ export default function DealExplorer() {
                   <div className="h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 transition-all group-hover:shadow-xl group-hover:border-blue-500/30 flex flex-col">
                     <div className="flex justify-between items-start mb-4">
                       <h3 className="font-bold text-lg text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">{deal.companyName}</h3>
-                      {/* ✅ USED UI BADGE */}
+                      {/*  USED UI BADGE */}
                       <Badge variant={deal.riskLevel}>{deal.riskLevel}</Badge>
                     </div>
                     <p className="text-slate-500 dark:text-slate-400 text-sm line-clamp-2 mb-6 flex-grow">{deal.description}</p>

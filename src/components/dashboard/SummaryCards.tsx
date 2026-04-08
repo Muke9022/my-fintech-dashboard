@@ -16,7 +16,7 @@ export default function SummaryCards() {
     dispatch(loadSavedDeals());
   }, [dispatch]);
 
-  // ✅ Real data from Redux
+  //  Real data from Redux
   const totalInvestment = useMemo(() => {
     const total = items.reduce((sum, d) => sum + (d.fundingGoal || 0), 0);
     return `$${(total / 1000000).toFixed(1)}M`;
@@ -36,7 +36,7 @@ export default function SummaryCards() {
     return { label: pct >= 50 ? 'Low' : 'Medium', pct };
   }, [items]);
 
-  // ✅ FIXED: Removed 3rd argument and used .slice(0, 3) for top 3
+  // FIXED: Removed 3rd argument and used .slice(0, 3) for top 3
   const top3 = useMemo(
     () => getRecommendedDeals(items, userInterests).slice(0, 3),
     [items, userInterests]
@@ -87,7 +87,7 @@ export default function SummaryCards() {
 
   return (
     <>
-      {/* ✅ SUMMARY CARDS — Real Data */}
+      {/* SUMMARY CARDS — Real Data */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {cards.map((card) => (
           <div
@@ -129,7 +129,7 @@ export default function SummaryCards() {
         ))}
       </div>
 
-      {/* ✅ TOP 3 RECOMMENDED DEALS — Recommendation Engine */}
+      {/* TOP 3 RECOMMENDED DEALS — Recommendation Engine */}
       {top3.length > 0 && (
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">

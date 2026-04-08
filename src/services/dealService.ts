@@ -28,12 +28,13 @@ export const dealService = {
     return new Promise((resolve) => {
       const delay = Math.floor(Math.random() * 500) + 300;
       setTimeout(() => {
-        resolve(dealsData as Deal[]);
+        resolve(dealsData as Deal[]);     //adding delay
       }, delay);
     });
   },
 
-  // Get single deal by id
+  // Get single deal by id  //getting data from json
+  
   getDealById: async (id: string): Promise<Deal | undefined> => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
