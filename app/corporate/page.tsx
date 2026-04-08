@@ -12,7 +12,7 @@ import {
 
 const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899'];
 
-// 🔥 Format Large Numbers - FIXED: Always returns a string for TypeScript
+//  Format Large Numbers - FIXED: Always returns a string for TypeScript
 const formatYAxis = (value: any): string => {
   const num = Number(value);
   if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
